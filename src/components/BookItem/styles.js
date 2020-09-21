@@ -10,25 +10,34 @@ export const Container = styled.div`
     padding: 20px;
     border-radius: 10px;
 
-    width: 18rem;
+    width: 20rem;
+    height: 15rem;
     margin-left: 10px;
 `;
 
 export const Title = styled.h3`
     font-size: 18px;
     font-weight: bold;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
 `;
 
 export const Description = styled.div`
     display: flex;
     flex-direction: column;
     align-items: left;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-left: 10px;
-    width:10rem;
+    width: 10rem;
+    height:80%;
 
     p {
         margin-top: 5px;
+        font-size: 14px;
     }
 `;
 

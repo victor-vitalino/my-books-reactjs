@@ -7,11 +7,22 @@ import MakeStars from "../MakeStars";
 function BookItem({ book }) {
     return (
         <Container>
-            <Icon src={book.img} />
+            <Icon
+                src={
+                    book.volumeInfo.imageLinks
+                        ? book.volumeInfo.imageLinks.thumbnail
+                        : ""
+                }
+            />
             <Description>
-                <Title>{book.title}</Title>
-                <p>{book.author}</p>
-                <MakeStars stars={book.stars} />
+                <div>
+                    <Title>{book.volumeInfo.title}</Title>
+                    {book.volumeInfo.authors.map((author) => (
+                        <p>{author}</p>
+                    ))}
+                </div>
+
+                {book.stars && <MakeStars stars={book.stars} />}
             </Description>
         </Container>
     );

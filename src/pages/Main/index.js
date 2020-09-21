@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
+import { useDispatch } from "react-redux";
+import { getBookRequest } from "../../store/modules/bookSearch/actions";
+
+import { useSelector } from "react-redux";
+
 import {
     Container,
     HeaderContainer,
@@ -12,17 +17,26 @@ import BookCaroussel from "../../components/BookCaroussel";
 
 function Main() {
     const [text, setText] = useState("");
+    const [foundBooks, setFoundBooks] = useState([]);
+    const dispatch = useDispatch();
 
-    const handleSubmit = (e) => {
+    const books = useSelector((state) => state.bookSearch.books);
+
+    useEffect(() => {
+        setFoundBooks(books);
+    }, [books]);
+
+    const getBooksFromApi = async (e) => {
         e.preventDefault();
-        console.log(text);
+
+        dispatch(getBookRequest(text));
     };
     return (
         <>
             <Container>
                 {/*  header */}
                 <HeaderContainer>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={getBooksFromApi}>
                         <SearchContainer>
                             <div>
                                 <AiOutlineSearch size={36} />
@@ -47,7 +61,7 @@ function Main() {
                 </HeaderContainer>
 
                 {/* book list */}
-                {text === "" && <BookCaroussel />}
+                <BookCaroussel books={foundBooks} search={text} />
             </Container>
         </>
     );

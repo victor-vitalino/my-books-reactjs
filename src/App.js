@@ -1,4 +1,5 @@
 import React from "react";
+import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import Routes from "./routes";
 
@@ -8,19 +9,22 @@ import { GridLayout } from "./styles/layout";
 
 import Menu from "./components/Menu";
 
-import './config/reactotronConfig'
+import "./config/reactotronConfig";
+import store from "./store";
 
 function App() {
     return (
         <>
-            <GridLayout>
-                <BrowserRouter>
-                    <Menu />
-                    <Routes />
-                </BrowserRouter>
-            </GridLayout>
+            <Provider store={store}>
+                <GridLayout>
+                    <BrowserRouter>
+                        <Menu />
+                        <Routes />
+                    </BrowserRouter>
+                </GridLayout>
 
-            <GlobalStyle />
+                <GlobalStyle />
+            </Provider>
         </>
     );
 }

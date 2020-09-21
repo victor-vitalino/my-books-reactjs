@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 
-import book from "./book/reducer";
+import bookSearch from "./bookSearch/reducer";
 
-export default combineReducers({ auth });
+export default combineReducers({ bookSearch });

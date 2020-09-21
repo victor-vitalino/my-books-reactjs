@@ -6,19 +6,12 @@ import { Container, Header, BookList } from "./styles";
 
 import BookItem from "../BookItem";
 
-function BookCaroussel() {
-    const book = {
-        title: "O auto da compadecida",
-        stars: 4,
-        author: "Ariano Suasuna",
-        img:
-            "https://upload.wikimedia.org/wikipedia/pt/b/bf/O_auto_da_compadecida.jpg",
-    };
+function BookCaroussel({ books, search }) {
     return (
         <>
             <Container>
                 <Header>
-                    <h3>Meus Livros</h3>
+                    <h3>{search ? `Resultados de: ${search}` : "Meus Livros"}</h3>
                     <div>
                         <Link to="/liked">
                             <h4>Mais</h4>
@@ -29,14 +22,9 @@ function BookCaroussel() {
             </Container>
 
             <BookList>
-                <BookItem book={book} />
-                <BookItem book={book} />
-                <BookItem book={book} />
-                <BookItem book={book} />
-                <BookItem book={book} />
-                <BookItem book={book} />
-                <BookItem book={book} />
-
+                {books.map((book) => (
+                    <BookItem key={book.id} book={book} />
+                ))}
             </BookList>
         </>
     );
