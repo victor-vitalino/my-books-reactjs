@@ -1,10 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
+import { getBookDetailRequest } from "../../store/modules/bookSearch/actions";
 
 import { Container, Icon, Description, Title } from "./styles";
 import MakeStars from "../MakeStars";
 
 function BookItem({ book }) {
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const handleDetail = () => {
+        dispatch(getBookDetailRequest(book, history));
+    };
     return (
         <Container>
             <Icon
@@ -17,12 +27,16 @@ function BookItem({ book }) {
             <Description>
                 <div>
                     <Title>{book.volumeInfo.title}</Title>
-                    {book.volumeInfo.authors.map((author) => (
-                        <p>{author}</p>
-                    ))}
+                    {book.volumeInfo.authors &&
+                        book.volumeInfo.authors.map((author) => (
+                            <p>{author}</p>
+                        ))}
                 </div>
 
                 {book.stars && <MakeStars stars={book.stars} />}
+                <button type="button" onClick={handleDetail}>
+                    <p>Detalhes</p>
+                </button>
             </Description>
         </Container>
     );
@@ -30,9 +44,7 @@ function BookItem({ book }) {
 
 BookItem.propTypes = {
     book: PropTypes.shape({
-        img: PropTypes.string,
-        title: PropTypes.string,
-        author: PropTypes.string,
+        volumeInfo: PropTypes.object,
         stars: PropTypes.number,
     }).isRequired,
 };

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { lighten } from "polished";
+import { lighten, darken } from "polished";
 
 export const Container = styled.div`
     display: flex;
@@ -33,11 +33,36 @@ export const Description = styled.div`
     justify-content: space-between;
     padding-left: 10px;
     width: 10rem;
-    height:80%;
+    height: 80%;
 
-    p {
-        margin-top: 5px;
-        font-size: 14px;
+    div {
+        p {
+            font-size: 14px;
+
+            :first-child {
+                margin-top: 5px;
+            }
+        }
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid #7159c1;
+        background: #fff;
+        text-align: center;
+
+        height: 30px;
+        border-radius: 5px;
+        color: #7159c1;
+        transition: all 0.5s;
+
+        :hover {
+            background: ${darken(0.1, "#7159c1")};
+            color: #fff;
+        }
     }
 `;
 

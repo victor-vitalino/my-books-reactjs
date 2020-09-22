@@ -3,6 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
     padding-top: 20px;
     svg {
-        fill: #fff;
+        fill: #7159c1;
     }
 `;
