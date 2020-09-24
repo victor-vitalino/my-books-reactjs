@@ -10,7 +10,7 @@ O projeto é um SPA com as informações sendo salvas no Local Storage do navega
 
 # Tecnologias Utilizadas
 - ReactJs 
-- React Hooks: o projeto foi feito segundo um padrão funcional (sem classes), os hooks foram usados para controle de estado dos componentes
+- React Hooks: o projeto foi feito seguindo o padrão funcional (sem classes), os hooks foram usados para controle de estado dos componentes
 - React Router Dom: para as rotas e navegação
 - Styled Components: para estilização do projeto
 - Polished: utilizado para dar variação as cores utilizadas
@@ -20,3 +20,7 @@ O projeto é um SPA com as informações sendo salvas no Local Storage do navega
 - Redux Saga: para os middlewares de controle de estado e interceptação de actions
 - Immer: bilbioteca utilizada para processamento de estado, para manter o padrão de imutabilidade da store no redux
 - Reactotron/Reactotron-Redux: utilizado em desenvolvimento para controle dos estados, actions e debug
+
+# Comandos
+
+- Yarn start: inicia a aplicação na porta 3000
