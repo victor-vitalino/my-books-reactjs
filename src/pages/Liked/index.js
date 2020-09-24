@@ -18,7 +18,7 @@ function Liked() {
     }
     return (
         <Container>
-            <div>conteudo</div>
+            <h2>Meus Favoritos</h2>
             <GridContainer>
                 {books.map((book) => (
                     <BookItem book={book} />

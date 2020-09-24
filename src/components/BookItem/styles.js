@@ -33,7 +33,7 @@ export const Description = styled.div`
     justify-content: space-between;
     padding-left: 10px;
     width: 10rem;
-    height: 80%;
+    height: 90%;
 
     div {
         p {

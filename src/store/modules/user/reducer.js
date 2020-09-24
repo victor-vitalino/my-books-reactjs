@@ -13,14 +13,9 @@ export default function userReducer(state = INITIAL_STATE, action) {
 
                 let index = draft.myList.findIndex((i) => i.id === book.id);
 
-                index < 0 && draft.myList.push({ ...book, rating });
-            });
-        case "@user/UPDATE_BOOK_STARS_SUCCESS":
-            return produce(state, (draft) => {
-                let { book, rating } = action.payload;
-
-                let index = draft.myList.findIndex((i) => i.id === book.id);
-                index >= 0 && (draft.myList[index].rating = rating);
+                index >= 0
+                    ? (draft.myList[index].rating = rating)
+                    : draft.myList.push({ ...book, rating });
             });
 
         case "@user/SELECT_USER_SUCCESS":
@@ -29,6 +24,8 @@ export default function userReducer(state = INITIAL_STATE, action) {
                 draft.user.name = name;
                 draft.myList = myList;
             });
+        case "@user/EXIT":
+            return INITIAL_STATE;
 
         default:
             return state;

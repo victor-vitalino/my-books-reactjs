@@ -9,7 +9,14 @@ export const GridLayout = styled.div`
         "asideLeft main main";
     grid-template-rows: 1fr 9fr 1fr;
     grid-template-columns: 0.8fr 6fr 1fr;
-    box-sizing:border-box;
+    box-sizing: border-box;
+
+    @media only screen and (max-width: 800px) {
+        grid-template-areas:
+            "asideLeft asideLeft asideLeft"
+            "main main main"
+            "main main main";
+    }
 `;
 
 export const Nav = styled.nav`
@@ -22,4 +29,3 @@ export const AsideLeft = styled.aside`
 export const MainContent = styled.main`
     grid-area: main;
 `;
-

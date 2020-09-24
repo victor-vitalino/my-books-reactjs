@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 // state
 import { useSelector, useDispatch } from "react-redux";
 import {
-    addBookToMyListRequest,
-    updateBookStarsRequest,
+    addBookToMyListRequest
 } from "../../store/modules/user/actions";
 
 //components
@@ -36,7 +35,7 @@ function BookDetail() {
         dispatch(addBookToMyListRequest({ book, rating }));
     };
     const handleUpdateStars = () => {
-        dispatch(updateBookStarsRequest({ book, rating }));
+        dispatch(addBookToMyListRequest({ book, rating }));
     };
 
     return (

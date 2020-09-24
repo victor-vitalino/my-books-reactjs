@@ -15,6 +15,8 @@ export default function bookSearch(state = INITIAL_STATE, action) {
             return produce(state, (draft) => {
                 draft.bookSelected = action.payload.book;
             });
+        case "@user/EXIT":
+            return INITIAL_STATE;
         default:
             return state;
     }

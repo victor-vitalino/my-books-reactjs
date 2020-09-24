@@ -10,18 +10,6 @@ export function addBookToMyListSuccess({ book, rating }) {
         payload: { book, rating },
     };
 }
-export function updateBookStarsRequest({ book, rating }) {
-    return {
-        type: "@user/UPDATE_BOOK_STARS_REQUEST",
-        payload: { book, rating },
-    };
-}
-export function updateBookStarsSuccess({ book, rating }) {
-    return {
-        type: "@user/UPDATE_BOOK_STARS_SUCCESS",
-        payload: { book, rating },
-    };
-}
 export function selectUserRequest({ name, history }) {
     return {
         type: "@user/SELECT_USER_REQUEST",
@@ -32,5 +20,10 @@ export function selectUserSuccess({ name, myList }) {
     return {
         type: "@user/SELECT_USER_SUCCESS",
         payload: { name, myList },
+    };
+}
+export function exitSystem() {
+    return {
+        type: "@user/EXIT",
     };
 }

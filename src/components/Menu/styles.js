@@ -14,6 +14,12 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media only screen and (max-width: 800px) {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 `;
 
 const appearFromLeft = keyframes`
@@ -27,6 +33,7 @@ const appearFromLeft = keyframes`
     transform:translateX(0);
   }
 `;
+
 export const LogoContainer = styled.div`
     padding-top: 30px;
     display: flex;
@@ -48,6 +55,11 @@ export const LogoContainer = styled.div`
     img {
         height: 64px;
         width: 64px;
+    }
+
+    @media only screen and (max-width: 800px) {
+        padding: 10px 30px 0px 10px;
+        margin-bottom: 0;
     }
 `;
 
@@ -73,5 +85,10 @@ export const MenuItem = styled(Link)`
 
     p {
         color: ${(props) => (props.selected ? "#7159c1" : "#fff")};
+    }
+
+    @media only screen and (max-width: 800px) {
+        width: 50%;
+        margin-bottom:0;
     }
 `;

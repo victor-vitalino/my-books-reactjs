@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+
+import { useSelector, useDispatch } from "react-redux";
+import { exitSystem } from "../../store/modules/user/actions";
 
 import { AiOutlineHeart, AiOutlineLogout } from "react-icons/ai";
 import { RiHomeLine } from "react-icons/ri";
@@ -12,13 +14,17 @@ import Logo from "../../assets/logo.png";
 
 function Menu() {
     const location = useLocation();
-    const [screen, setScreen] = useState(location.pathname);
+    const dispatch = useDispatch();
+    const [screen, setScreen] = useState("/");
 
     const name = useSelector((state) => state.userReducer.user.name);
 
     if (name === "") {
         return <> </>;
     }
+    const handleExit = () => {
+        dispatch(exitSystem());
+    };
 
     return (
         <AsideLeft>
@@ -46,10 +52,10 @@ function Menu() {
                     <p>Favoritos</p>
                 </MenuItem>
                 <MenuItem
-                    to="/exit"
+                    to="/"
                     selected={screen === "/exit"}
-                    onClick={() => setScreen("/exit")}
-                    style={{ marginBottom: 0 }}
+                    onClick={() => handleExit()}
+
                 >
                     <AiOutlineLogout size={36} />
                     <p>Sair</p>
