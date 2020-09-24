@@ -23,6 +23,7 @@ function Main() {
     const dispatch = useDispatch();
 
     const books = useSelector((state) => state.bookSearch.books);
+    const name = useSelector((state) => state.userReducer.user.name);
 
     useEffect(() => {
         setFoundBooks(books);
@@ -54,7 +55,7 @@ function Main() {
                     </form>
 
                     <ProfileContainer>
-                        <h2>Victor</h2>
+                        <h2>{name}</h2>
                         <img
                             src="https://api.adorable.io/avatars/90/abott@adorable.png"
                             alt="profile"

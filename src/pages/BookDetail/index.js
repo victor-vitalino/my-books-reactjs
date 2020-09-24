@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 
 // state
 import { useSelector, useDispatch } from "react-redux";
-import { addBookToMyListRequest } from "../../store/modules/user/actions";
+import {
+    addBookToMyListRequest,
+    updateBookStarsRequest,
+} from "../../store/modules/user/actions";
 
 //components
 import MakeStars from "../../components/MakeStars";
@@ -32,6 +35,9 @@ function BookDetail() {
     const handleFavoriteBook = () => {
         dispatch(addBookToMyListRequest({ book, rating }));
     };
+    const handleUpdateStars = () => {
+        dispatch(updateBookStarsRequest({ book, rating }));
+    };
 
     return (
         <Container>
@@ -44,7 +50,7 @@ function BookDetail() {
                     src={
                         book.volumeInfo.imageLinks
                             ? book.volumeInfo.imageLinks.thumbnail
-                            : ""
+                            : "https://via.placeholder.com/250x280.png?text=Sem+imagem"
                     }
                 />
                 <DescriptionContainer>
@@ -66,9 +72,15 @@ function BookDetail() {
                         stars={book.rating && book.rating}
                         returnRating={setRating}
                     />
-                    <button type="button" onClick={handleFavoriteBook}>
-                        <p>Adicionar aos Favoritos</p>
-                    </button>
+                    {book.rating >= 0 ? (
+                        <button type="button" onClick={handleUpdateStars}>
+                            <p>Atualizar</p>
+                        </button>
+                    ) : (
+                        <button type="button" onClick={handleFavoriteBook}>
+                            <p>Adicionar aos Favoritos</p>
+                        </button>
+                    )}
                 </DescriptionContainer>
             </div>
         </Container>

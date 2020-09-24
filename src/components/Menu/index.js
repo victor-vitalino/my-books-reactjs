@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { AiOutlineHeart, AiOutlineLogout } from "react-icons/ai";
 import { RiHomeLine } from "react-icons/ri";
@@ -12,6 +13,12 @@ import Logo from "../../assets/logo.png";
 function Menu() {
     const location = useLocation();
     const [screen, setScreen] = useState(location.pathname);
+
+    const name = useSelector((state) => state.userReducer.user.name);
+
+    if (name === "") {
+        return <> </>;
+    }
 
     return (
         <AsideLeft>

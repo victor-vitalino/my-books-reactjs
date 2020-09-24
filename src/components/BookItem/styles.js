@@ -54,7 +54,7 @@ export const Description = styled.div`
         background: #fff;
         text-align: center;
 
-        height: 30px;
+        height: 40px;
         border-radius: 5px;
         color: #7159c1;
         transition: all 0.5s;

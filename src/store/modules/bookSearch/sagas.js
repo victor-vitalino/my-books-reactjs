@@ -22,7 +22,7 @@ export function* getBook({ payload }) {
 export function* getBookDetail({ payload }) {
     yield put(getBookDetailSuccess(payload.book));
 
-    payload.history.push("/detail");
+    payload.history && payload.history.push("/detail");
 }
 
 export default all([
