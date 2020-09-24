@@ -11,6 +11,7 @@ export default createGlobalStyle`
         padding:0;
         outline:0;
         box-sizing:border-box;
+        text-align:justify;
     }
 
     html, body, #root{
