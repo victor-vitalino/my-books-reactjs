@@ -25,3 +25,10 @@ O projeto é um SPA com as informações sendo salvas no Local Storage do navega
 # Comandos
 
 - Yarn start: inicia a aplicação na porta 3000
+
+# Telas
+
+![Alt text](/imagem01.png?raw=true "Title")
+![Alt text](/imagem02.png?raw=true "Title")
+![Alt text](/imagem03.png?raw=true "Title")
+![Alt text](/imagem04.png?raw=true "Title")
