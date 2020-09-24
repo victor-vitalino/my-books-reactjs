@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 
-import { AiOutlineHeart, AiOutlineStar, AiOutlineLogout } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineLogout } from "react-icons/ai";
 import { RiHomeLine } from "react-icons/ri";
 
 import { AsideLeft } from "../../styles/layout";
@@ -12,7 +12,6 @@ import Logo from "../../assets/logo.png";
 function Menu() {
     const location = useLocation();
     const [screen, setScreen] = useState(location.pathname);
-    const [booklist, setBooklist] = useState([]);
 
     return (
         <AsideLeft>
@@ -43,6 +42,7 @@ function Menu() {
                     to="/exit"
                     selected={screen === "/exit"}
                     onClick={() => setScreen("/exit")}
+                    style={{ marginBottom: 0 }}
                 >
                     <AiOutlineLogout size={36} />
                     <p>Sair</p>

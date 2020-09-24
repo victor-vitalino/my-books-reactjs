@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { BsArrowRightShort } from "react-icons/bs";
 
-import { Container, Header, BookList } from "./styles";
+import { Container, Header, GridContainer } from "./styles";
 
 import BookItem from "../BookItem";
 
@@ -14,19 +12,11 @@ function BookCaroussel({ books, search }) {
         <>
             <Container>
                 <Header>
-                    <h3>
-                        {search ? `Resultados de: ${search}` : "Meus Livros"}
-                    </h3>
-                    <div>
-                        <Link to="/liked">
-                            <h4>Mais</h4>
-                        </Link>
-                        <BsArrowRightShort size={24} />
-                    </div>
+                    <h3>{search && `Resultados de: ${search}`}</h3>
                 </Header>
             </Container>
 
-            <BookList>
+            <GridContainer >
                 {books.map((book) => (
                     <BookItem
                         key={book.id}
@@ -34,7 +24,7 @@ function BookCaroussel({ books, search }) {
                         handleDetails={handleDetails}
                     />
                 ))}
-            </BookList>
+            </GridContainer>
         </>
     );
 }

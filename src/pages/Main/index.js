@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import { AiOutlineSearch } from "react-icons/ai";
 
 import { useDispatch } from "react-redux";
@@ -14,6 +15,7 @@ import {
 } from "./styles";
 
 import BookCaroussel from "../../components/BookCaroussel";
+import MessageWrapper from "../../components/MessageWrapper";
 
 function Main() {
     const [text, setText] = useState("");
@@ -61,7 +63,16 @@ function Main() {
                 </HeaderContainer>
 
                 {/* book list */}
-                <BookCaroussel books={foundBooks} search={text} />
+                {foundBooks.length ? (
+                    <BookCaroussel books={foundBooks} search={text} />
+                ) : (
+                    <MessageWrapper>
+                        <p>
+                            Bem vindo! Adicione novos livros a sua lista de
+                            favoritos
+                        </p>
+                    </MessageWrapper>
+                )}
             </Container>
         </>
     );

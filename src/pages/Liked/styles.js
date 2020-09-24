@@ -1,27 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    height: 100vh;
+    background: #fff;
     display: flex;
-
     flex-direction: column;
-    justify-content: flex-start;
-
-    padding: 10px 20px 10px 0px;
-`;
-
-export const Header = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    h3 {
-        font-size: 24px;
-        padding-bottom: 5px;
-    }
-    > div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
+    align-items: center;
+    justify-content: center;
 `;
 
 export const GridContainer = styled.div`
@@ -32,6 +17,7 @@ export const GridContainer = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px 5px;
 
+    overflow: scroll;
 
 
     @media only screen and (min-width: 600px) {

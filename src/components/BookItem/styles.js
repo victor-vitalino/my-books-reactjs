@@ -10,7 +10,7 @@ export const Container = styled.div`
     padding: 20px;
     border-radius: 10px;
 
-    width: 20rem;
+    width: auto;
     height: 15rem;
     margin-left: 10px;
 `;

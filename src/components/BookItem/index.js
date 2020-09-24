@@ -21,19 +21,19 @@ function BookItem({ book }) {
                 src={
                     book.volumeInfo.imageLinks
                         ? book.volumeInfo.imageLinks.thumbnail
-                        : ""
+                        : "https://via.placeholder.com/250x280.png?text=Sem+imagem"
                 }
             />
             <Description>
                 <div>
                     <Title>{book.volumeInfo.title}</Title>
                     {book.volumeInfo.authors &&
-                        book.volumeInfo.authors.map((author) => (
-                            <p>{author}</p>
+                        book.volumeInfo.authors.map((author, i) => (
+                            <p key={i}>{author}</p>
                         ))}
                 </div>
 
-                {book.stars && <MakeStars stars={book.stars} />}
+                {book.rating > 0 && <MakeStars stars={book.rating} />}
                 <button type="button" onClick={handleDetail}>
                     <p>Detalhes</p>
                 </button>

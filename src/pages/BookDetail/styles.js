@@ -1,15 +1,32 @@
 import styled from "styled-components";
+import { darken } from "polished";
 
 export const Container = styled.div`
     margin-top: 5vh;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
 
-    flex-direction: row;
-    height: 80vh;
-
+    align-items: flex-start;
     background: #fff;
+
+    > a {
+        padding: 10px 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    > div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        flex-direction: row;
+        height: 80vh;
+
+        background: #fff;
+        padding: 0px 20px;
+    }
 `;
 
 export const Icon = styled.img`
@@ -23,6 +40,7 @@ export const Icon = styled.img`
 
 export const DescriptionContainer = styled.div`
     width: 60vw;
+    padding-left: 20px;
 
     h2 {
         font-size: 36px;
@@ -39,5 +57,26 @@ export const DescriptionContainer = styled.div`
     .page-count {
         display: flex;
         flex-direction: row;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid #7159c1;
+        background: #fff;
+        text-align: center;
+
+        height: 30px;
+        border-radius: 5px;
+        color: #7159c1;
+        transition: all 0.5s;
+        padding: 0px 10px;
+
+        :hover {
+            background: ${darken(0.1, "#7159c1")};
+            color: #fff;
+        }
     }
 `;

@@ -1,13 +1,31 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-// import { Container } from './styles';
+import BookItem from "../../components/BookItem";
+import MessageWrapper from "../../components/MessageWrapper";
 
-function liked() {
+import { Container, GridContainer } from "./styles";
+
+function Liked() {
+    const books = useSelector((state) => state.userReducer.myList);
+    console.tron.log(books);
+    if (books.length <= 0) {
+        return (
+            <MessageWrapper>
+                <p>Não existem livros nos seus favoritos</p>
+            </MessageWrapper>
+        );
+    }
     return (
-        <div>
-            <h1>liked</h1>
-        </div>
+        <Container>
+            <div>conteudo</div>
+            <GridContainer>
+                {books.map((book) => (
+                    <BookItem book={book} />
+                ))}
+            </GridContainer>
+        </Container>
     );
 }
 
-export default liked;
+export default Liked;

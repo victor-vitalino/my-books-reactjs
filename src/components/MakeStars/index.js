@@ -2,47 +2,52 @@ import React, { useState } from "react";
 
 import PropTypes from "prop-types";
 
-import { AiOutlineStar, AiFillStar } from "react-icons/ai";
+import { FaStar } from "react-icons/fa";
 
 import { Container } from "./styles";
 
-function MakeStars({ stars = 0, size = 24 }) {
-    const [starsCount, setStarsCount] = useState(0);
+function MakeStars({ stars = 0, size = 24, returnRating }) {
+    const [rating, setRating] = useState(stars);
+    const [hover, setHover] = useState(0);
 
-    const handleStarsClick = (index) => {
-        if (starsCount === 1 && index === 1) {
-            setStarsCount(0);
-        } else {
-            setStarsCount(index);
-        }
+    const handleRating = (ratingValue) => {
+        setRating(ratingValue);
+        // caso receba o callback executa
+        returnRating && returnRating(ratingValue++);
     };
 
-    const items = [];
-    // eslint-disable-next-line no-plusplus
-    for (let index = 1; index <= 5; index++) {
-        if (index <= starsCount) {
-            items.push(
-                <AiFillStar
-                    key={index}
-                    size={size}
-                    onClick={() => handleStarsClick(index)}
-                />
-            );
-        } else {
-            items.push(
-                <AiOutlineStar
-                    key={index}
-                    size={size}
-                    onClick={() => handleStarsClick(index)}
-                />
-            );
-        }
-    }
-    return <Container>{items}</Container>;
+    return (
+        <Container>
+            {[...Array(5)].map((star, index) => {
+                let ratingValue = index++;
+
+                return (
+                    <label>
+                        <input
+                            type="radio"
+                            name="ratingInput"
+                            onClick={() => handleRating(ratingValue)}
+                        />
+                        <FaStar
+                            className="star"
+                            color={
+                                ratingValue <= (hover || rating)
+                                    ? "#ffc107"
+                                    : "#e4e5e9"
+                            }
+                            size={size}
+                            onMouseEnter={() => setHover(ratingValue)}
+                            onMouseLeave={() => setHover(null)}
+                        />
+                    </label>
+                );
+            })}
+        </Container>
+    );
 }
 
 MakeStars.propTypes = {
-    stars: PropTypes.number.isRequired,
+    returnRating: PropTypes.func,
 };
 
 export default MakeStars;
