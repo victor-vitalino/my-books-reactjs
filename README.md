@@ -1,17 +1,18 @@
 # My favorite books
-> Projeto em ReactJs para busca de titulos (livros) para criação de uma lista com seus livros favoritos
+> Projeto em ReactJs para busca de títulos (livros) para criação de uma lista com seus livros favoritos
 
 # Descrição
 Projeto pessoal feito como proposta para teste Desenvolvedor FrontEnd ReactJs. <br>
 
-Este projeto conta com a utilização da API aberta do Google Books, para busca de titulos e dados dos livros, 
-embora seja possivel obter várias informaçoes atravez desta api, foi utilizada apenas as rotas abertas da mesma. <br>
+Este projeto conta com a utilização da API aberta do Google Books, para busca de títulos e dados dos livros, 
+embora seja possivel obter várias informaçoes através desta api, foi utilizada apenas as rotas abertas da mesma. <br>
 O projeto é um SPA com as informações sendo salvas no Local Storage do navegador.
 
 # Tecnologias Utilizadas
 - ReactJs 
 - React Hooks: o projeto foi feito seguindo o padrão funcional (sem classes), os hooks foram usados para controle de estado dos componentes
 - React Router Dom: para as rotas e navegação
+- Local Storage: utilizado para salvar os dados dos livros salvos, separando por usuários
 - Styled Components: para estilização do projeto
 - Polished: utilizado para dar variação as cores utilizadas
 - React Icons: utilizado para adição de icones na aplicação
