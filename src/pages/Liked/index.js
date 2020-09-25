@@ -8,7 +8,6 @@ import { Container, GridContainer } from "./styles";
 
 function Liked() {
     const books = useSelector((state) => state.userReducer.myList);
-    console.tron.log(books);
     if (books.length <= 0) {
         return (
             <MessageWrapper>
